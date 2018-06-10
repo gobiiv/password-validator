@@ -1,3 +1,6 @@
+/*
+This is the espresso UI test for the password validator.
+ */
 package com.example.gobii.passwordvalidator;
 
 import android.content.Context;
@@ -55,6 +58,8 @@ public class PasswordValidatorEspressoTest {
                 .getPackageName());
     }
 
+    // This method tests if the UI and allerts appear correctly for a weak
+    // password
     @Test
     public void testWeakPasswordAlert() {
         // Type a weak password and then press the validate button.
@@ -66,6 +71,8 @@ public class PasswordValidatorEspressoTest {
         onView(withId(R.id.outputtxt1)).check(matches(withText(WEAK_ALERT)));
     }
 
+    // This method tests if the UI and alerts appear correctly for a strong
+    // password
     @Test
     public void testStrongPasswordAlert() {
         // Type a strong password and then press the validate button.

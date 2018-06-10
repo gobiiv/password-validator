@@ -1,3 +1,7 @@
+/*
+this is the unit test for the validator class
+
+ */
 package com.example.gobii.passwordvalidator;
 
 import org.junit.BeforeClass;
@@ -34,6 +38,7 @@ public class ValidatorUnitTest {
 
     // rule 5: password is less than 15 characters
 
+    //this method initializes the validator class before running tests
     @BeforeClass
     public static void init() {
         v = new Validator();
@@ -42,57 +47,71 @@ public class ValidatorUnitTest {
     //failed rule validations
     @Test
     public void isPassword() {
+        //tests the result when password is entered with different case
         assertEquals(0, v.validateRule1(str1));
     }
 
     @Test
     public void lessThan8Chars() {
+        //tests the result when a string of less than 8 characters is entered
         assertEquals(0, v.validateRule2(str2));
     }
 
     @Test
     public void doesNotContainNumber() {
+        //tests the result when a string with no numbers is entered
         assertEquals(0, v.validateRule3(str3));
     }
 
     @Test
     public void doesNotContainUpperCase() {
+        //tests the result when a string with no upper case letters is entered
         assertEquals(0, v.validateRule4(str4));
     }
 
     @Test
     public void greaterThan15Chars() {
+        //tests the result when a string with more than 15 characters is entered
         assertEquals(0, v.validateRule5(str5));
     }
 
     //successful rule validations
     @Test
     public void isNotPassword() {
+        //tests the result when 'password' is not entered
         assertEquals(1, v.validateRule1(str6));
     }
 
     @Test
     public void greaterThan7Chars() {
+        //tests the result when a string with more than 7 characters is entered
         assertEquals(1, v.validateRule2(str7));
     }
 
     @Test
     public void containsNumber() {
+        //tests the result when a string containing at least 1 number is entered
         assertEquals(1, v.validateRule3(str8));
     }
 
     @Test
     public void ContainsUpperCase() {
+        //tests the result when a string containing at least 1 upper case letter
+        // is entered
         assertEquals(1, v.validateRule4(str9));
     }
 
     @Test
     public void lessThan16Chars() {
+        //tests the result when a string containing less than 16 characters is
+        // entered
         assertEquals(1, v.validateRule5(str10));
     }
 
     @Test
     public void successTest() {
+        //tests the result when a string representing a strong password is
+        // entered
         assertEquals(5, v.validate(str11));
     }
 

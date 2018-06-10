@@ -15,22 +15,23 @@ public class PasswordValidator extends AppCompatActivity {
     }
 
     public void validatePw(View view) {
-        //display message when btn1 is clicked
+        //this method validates the password field and then displays a message
+        // (strong/ not strong) relating to the entered text.
 
         //get string from password field
         EditText txt = /*(EditText)*/ findViewById(R.id.inputtxt1);
         String pw = txt.getText().toString();
 
-        //validate password string
+        //validates password string
         Validator v = new Validator();
         String msg = "Not Strong!";
         int pass = v.validate(pw);
-        //determine success or fail
+        //determines success or fail for password validation
         if (pass == 5){
             msg = "Strong!";
         }
 
-        //dsplay the result
+        //dsplays the result
         TextView disp = findViewById(R.id.outputtxt1);
         disp.setText(msg);
 
